@@ -11,6 +11,9 @@ class AbsenModel extends Model
 
     public function search($tanggalDari, $tanggalSampai, $search, $kelas)
     {
+        if($tanggalDari===''|$tanggalSampai===""){
+            $tanggalDari=$tanggalSampai="2021-08-27";
+        }
         if ($kelas) {
             $return = $this->groupStart()->like('nama', $search)->orWhere('no_induk', $search)->groupEnd()->groupStart()->where('date >=', $tanggalDari)->where('date <=', $tanggalSampai)->groupEnd()->where('kelas', $kelas);
         } else {

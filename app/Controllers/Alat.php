@@ -50,7 +50,7 @@ class Alat extends BaseController
             'validation' => \Config\Services::validation()
         ];
 
-        return view('alat/detail', $data);
+        return view('Alat/detail', $data);
     }
 
 
